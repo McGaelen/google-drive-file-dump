@@ -91,7 +91,7 @@ class Main {
     const dir = fs.opendirSync(startPoint);
     for await (const dirent of dir) {
       if (dirent.isDirectory()) {
-        await this.scanDirectoriesRecursively(`${startPoint}/${dirent.name}`);
+        await this.scanDirectories(`${startPoint}/${dirent.name}`);
       } else if (dirent.isFile() || dirent.isSymbolicLink()) {
         this.fileList.push(`${startPoint}/${dirent.name}`);
       }
